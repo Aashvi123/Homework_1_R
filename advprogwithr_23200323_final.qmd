@@ -1,0 +1,116 @@
+---
+title: "Advancing Programming with R"
+subtitle: "QMD modified by Aashvi Shah - June 2024"
+author: |
+  Aashvi Shah
+date: "June 2024"
+format:
+  beamer:
+    template: header_beamer.tex
+    toc: false
+fontsize: 11pt
+execute: 
+  eval: true
+  echo: true
+  message: false
+  warning: false
+  size: 11
+output:
+  beamer_presentation:
+    fig_height: 4  # Adjusted height
+    fig_width: 6   # Adjusted width
+---
+
+```{r}
+knitr::opts_chunk$set(
+  echo = TRUE,           # Show code by default
+  message = FALSE,       # Suppress messages
+  warning = FALSE,       # Suppress warnings
+  fig.width = 4,         # Default figure width
+  fig.height = 3,        # Default figure height
+  fig.align = 'center',  # Center-align figures
+  size = 'footnotesize'  # Use a smaller font size for code and output
+)
+
+```
+
+```{r}
+library(ggplot2)
+library(png)
+file_path <- "/Users/aashvishitalshah/Downloads/iris-machinelearning.png"
+image_data <- readPNG(file_path)
+plot(1:2, type = "n", xlab = "", ylab = "", xlim = c(0, 1), ylim = c(0, 1))
+rasterImage(image_data, 0, 0, 1, 1)
+```
+
+# **Exploring the Relationship Between Sepal Length and Width in Iris Flowers**
+
+## Introduction
+
+The *"iris"* dataset contains measurements of sepal and petal dimensions for three species of iris flowers: ***setosa, versicolor, and virginica***. In this analysis, we'll focus on the relationship between sepal length and sepal width across these different species.
+
+## **Descriptive Statistics**
+
+**Before plotting the data, let's start by examining some descriptive statistics of the sepal length**
+
+**and width variables.**
+
+```{r}
+#| echo: false
+# Load dataset
+data(iris)
+
+# Summary statistics
+summary(iris$Sepal.Length)
+summary(iris$Sepal.Width)
+
+```
+
+### **Sepal Length**
+
+**1) Minimum**: 4.3
+
+**2) Maximum**: 7.9
+
+**3) Mean**: 5.84
+
+**4) Median**: 5.8
+
+**5) Standard Deviation**: 0.83
+
+### **Sepal Width**
+
+**1) Minimum**: 2.0
+
+**2) Maximum**: 4.4
+
+**3) Mean**: 3.06
+
+**4) Median**: 3.0
+
+**5) Standard Deviation**: 0.44
+
+## **Plotting the Relationship**
+
+Now, let's visualize the relationship between sepal length and width using a scatter plot,
+
+with different colors representing each species of iris flower.
+
+```{r}
+# Plotting the relationship between sepal length and width
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Relationship Between Sepal Length and Width",
+       x = "Sepal Length",
+       y = "Sepal Width") +
+  theme_minimal()
+
+```
+
+## **Interpretation**
+
+The scatter plot above illustrates the relationship between sepal length and sepal width for iris flowers of different species.
+
+From the plot, we observe variations in sepal dimensions across the three species: setosa, versicolor, and virginica. Generally, there appears to be a positive relationship between sepal length and width, with some variations within each species.
+
+This insight could provide valuable information for distinguishing between different species of iris flowers based on their sepal characteristics.
