@@ -1,9 +1,9 @@
 ---
-title: "Advancing Programming with R"
+title: "Advancing Programming with R trial run"
 subtitle: "QMD modified by Aashvi Shah - June 2024"
 author: |
-  Aashvi Shah
-date: "June 2024"
+  Aashvi Shah 23200323
+date: " 12th June 2024, 10:14 am"
 format:
   beamer:
     template: header_beamer.tex
